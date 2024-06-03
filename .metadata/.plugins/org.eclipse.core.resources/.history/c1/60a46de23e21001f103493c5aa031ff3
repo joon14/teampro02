@@ -1,0 +1,13 @@
+package com.project.per;
+
+import java.util.List;
+
+import com.company.dto.Board;
+
+public interface NoticeDAO {
+	public List<Notice> getBoardList();
+	public Notice getBoard(int bno);
+	public void insBoard(Notice notice);
+	public void upBoard(Notice notice);
+	public void delBoard(int bno);
+}
