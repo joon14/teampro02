@@ -20,6 +20,7 @@
 </h1>
 <p> <a href="${path}/qna/qnaList.do">qnaList</a></p>
 <p> <a href="${path}/product/productList.do">productList</a></p>
+<p> <a href="${path}/inventory/getInventoryList.do">getInventoryList</a></p>
 
 <!-- 
 <p> <a href="${path}/exproduct/exproductList.do">exproductList</a></p> -->
