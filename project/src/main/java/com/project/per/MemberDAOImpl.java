@@ -31,8 +31,12 @@ public class MemberDAOImpl implements MemberDAO{
 
 	@Override
 	public void upMember(Member member) {
-		sqlSession.update("member.upMember",member);
-		
+		sqlSession.update("member.upMember",member);	
+	}
+	
+	@Override
+	public void upPw(Member member) {
+		sqlSession.update("member.upPw", member);
 	}
 
 	@Override

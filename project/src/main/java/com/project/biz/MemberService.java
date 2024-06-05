@@ -9,6 +9,7 @@ public interface MemberService {
 	public Member getMember(String id);
 	public void insMember(Member member);
 	public void upMember(Member member);
+	public void upPw(Member member);
 	public void delMember(String id);
     public boolean checkPassword(String rawPassword, String encodedPassword);
 

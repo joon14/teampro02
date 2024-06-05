@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+    <!-- 전체 회원 조회 -->
+    <select id="getMemberList" resultType="com.project.domain.Member">
+        select * from member
+    </select>
+
+    <!-- 특정 회원 조회 -->
+    <select id="getMember" parameterType="String" resultType="com.project.domain.Member">
+        select * from member where id = #{id}
+    </select>
+
+    <!-- 회원 등록 -->
+    <insert id="insMember" parameterType="com.project.domain.Member">
+        insert into member values (default, #{id}, #{pw}, #{name}, #{email}, #{tel}, #{postcode}, 
+        #{addr1}, #{addr2}, #{birth}, default, default, default, default, 
+        default, default, default, default, default)
+    </insert>
+
+    <!-- 회원정보 수정 -->
+    <update id="upMember" parameterType="com.project.domain.Member">
+        update member set 
+            name = #{name}, 
+            email = #{email}, 
+            tel = #{tel}, 
+            postcode = #{postcode}, 
+            addr1 = #{addr1},
+            addr2 = #{addr2},
+            payment= #{payment}
+        where id = #{id}
+    </update>
+    
+    <!-- 비밀번호만 변경 -->
+    <update id="upPw">
+    	update member set pw=#{pw} where id=#{id}
+    </update>
+
+    <!-- Delete a member by ID -->
+    <delete id="delMember" parameterType="String">
+        DELETE FROM member WHERE id = #{id}
+    </delete>
+
+    <!-- Check if an ID exists -->
+    <select id="idCheck" parameterType="String" resultType="int">
+        SELECT COUNT(*) FROM member WHERE id = #{id}
+    </select>
+</mapper>
+
+     

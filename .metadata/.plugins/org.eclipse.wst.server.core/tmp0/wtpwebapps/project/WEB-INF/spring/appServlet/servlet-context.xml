@@ -55,7 +55,7 @@
 	
 	<!-- 멀티파트 업로드 디렉토리 지정 -->
 	<beans:bean id="uploadPath" class="java.lang.String">
-		<beans:constructor-arg value="D:\hty\pro03\pro03\src\main\webapp\resources\upload\"></beans:constructor-arg>
+		<beans:constructor-arg value="C:\jdj\teampro02\teamproject\project\src\main\webapp\resources\upload\"></beans:constructor-arg>
 	</beans:bean>
 	
 	<!-- Spring Validator 지정 -->

@@ -39,10 +39,15 @@ public class MemberServiceImple implements MemberService{
 
 	@Override
 	public void upMember(Member member) {
-        //비밀번호 암호화
+		memberDAO.upMember(member);
+	}
+	
+	@Override
+	public void upPw(Member member) {
+		//비밀번호 암호화
 		String hashedPassword = passwordEncoder.encode(member.getPw());
 		member.setPw(hashedPassword);
-		memberDAO.upMember(member);
+		memberDAO.upPw(member);
 	}
 
 	@Override
