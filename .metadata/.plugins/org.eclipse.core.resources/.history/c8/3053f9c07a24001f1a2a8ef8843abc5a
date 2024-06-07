@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+    <!-- 전체 회원 조회 -->
+    <select id="getMemberList" resultType="com.project.domain.Member">
+        select * from member order by no desc
+    </select>
+
+    <!-- 특정 회원 조회1 : id -->
+    <select id="getIdMember" parameterType="String" resultType="com.project.domain.Member">
+        select * from member where id = #{id}
+    </select>
+    
+    <!-- 특정 회원 조회2 : mcode -->
+    <select id="getMcodeMember" parameterType="String" resultType="com.project.domain.Member">
+        select * from member where mcode = #{mcode}
+    </select>
+    
+    <!-- 특정 회원 조회3 : 이용정지 회원조회 -->
+    <select id="getAbleMember" parameterType="String" resultType="com.project.domain.Member">
+        select * from member where able = 'FALSE'
+    </select>
+
+    <!-- 회원 등록 -->
+    <insert id="insMember" parameterType="com.project.domain.Member">
+        insert into member values (default, #{id}, #{pw}, #{name}, #{email}, #{tel}, #{postcode}, 
+        #{addr1}, #{addr2}, #{birth}, default, default, default, default, 
+        default, default, default, default, default)
+    </insert>
+
+    <!-- 회원정보 수정 -->
+    <update id="upMember" parameterType="com.project.domain.Member">
+        update member set 
+            name = #{name}, 
+            email = #{email}, 
+            tel = #{tel}, 
+            postcode = #{postcode}, 
+            addr1 = #{addr1},
+            addr2 = #{addr2},
+            payment= #{payment}
+        where id = #{id}
+    </update>
+    
+    <!-- 비밀번호만 변경 -->
+    <update id="upPw">
+    	update member set pw=#{pw} where id=#{id}
+    </update>
+    
+    <!-- 관리자 전용 : 관리자 권한 부여 -->
+    <update id="upMcode">
+	    update member set mcode=1 where id=#{id}
+    </update>
+    
+    <!-- 관리자 전용 : 이용정지 해제 -->
+    <update id="upAble">
+	    update member set caution=0, stopperiod=0, able='TRUE', stopstart=null, stopend=null, sumcaution=#{sumcaution}-1 where id=#{id}
+    </update>
+
+    <!-- 회원탈퇴 -->
+    <delete id="delMember" parameterType="String">
+        delete from member where id = #{id}
+    </delete>
+
+    <!-- Check if an ID exists -->
+    <select id="idCheck" parameterType="String" resultType="int">
+        select count(*) from member WHERE id = #{id}
+    </select>
+</mapper>

@@ -34,6 +34,7 @@
                     <p>등록 일 :  ${product.resdate}</p>
                      -->
                     <p>등록 일 : <fmt:formatDate value="${product.resdate}" pattern="yyyy년 MM월 dd일"/></p>
+                    <p>A/S 기간 : ${product.asdate }년</p>
                    
                     <div class="field">
                         <label class="label">추가 이미지</label>

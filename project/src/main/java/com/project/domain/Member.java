@@ -35,4 +35,5 @@ public class Member {
 	private String stopstart; //정지 시작 날, default=null
     // caution 값이 증가할 때, stopstart -> current_date(현재시간으로 update)
 	private String stopend; //정지 끝나는 날 = 시작 날 + 정지기간, default=null
+	private int sumcaution;  //경고 횟수 저장
 }

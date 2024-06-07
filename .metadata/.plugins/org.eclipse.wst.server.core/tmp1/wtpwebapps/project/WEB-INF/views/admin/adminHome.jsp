@@ -19,20 +19,34 @@
 	관리자 페이지 
 </h1>
 
-<h3>제품 등록 및 삭제</h3>
-<p><a href="${path}/product/productList.do">productList</a></p>
+<h3>상품 관리</h3>
+<p><a href="${path}/admin/product/productList.do">productList</a></p>
 
-<h3>재고 등록 및 삭제</h3>
-<p><a href="${path}/product/productList.do">productList</a></p>
+<h3>재고 관리</h3>
+<p><a href="${path}/product/productList.do">InventoryList</a></p>
 
-<h3> 공지사항 관리</h3>
-<p> <a href="${path}/board/boardList.do">boardList</a></p>
+<h3>회원 관리</h3>
+<p><a href="${path}/admin/qna/qnaList.do">qnaList</a></p>
 
-<h3> 자유계시판 관리</h3>
-<p><a href="${path}/free/freeList.do">freeList</a></p>
+<c:if test="${sessionScope.smcode==0}">
+	<h3>서브관리자 관리</h3>
+	<p><a href="${path}/admin/">subAdminList</a></p>
+</c:if>
 
-<h3> qna 관리</h3>
-<p><a href="${path}/qna/qnaList.do">qnaList</a></p>
+<h3>공지사항 관리</h3>
+<p> <a href="${path}/admin/notice/noticeList.do">noticeList</a></p>
+
+<h3>faq 관리</h3>
+<p><a href="${path}/admin/faq/faqList.do">faqList</a></p>
+
+<h3>qna 관리</h3>
+<p><a href="${path}/admin/qna/qnaList.do">qnaList</a></p>
+
+<h3>상품별 qna 관리</h3>
+<p><a href="${path}/admin/">productQnaList</a></p>
+
+<h3>A/S문의</h3>
+<p><a href="${path}/admin/">A/S</a></p>
 
 
 <footer>

@@ -347,6 +347,8 @@
 			        <input type="checkbox" id="ck_item1" name="ck_item" class="form-check-input">
 			        <label for="ck_item1" class="form-check-label">약관에 동의</label><br><br>
 			    </div>
+			    <h2 class="page-title">개인정보처리방침</h2>
+    			<hr>
 			    <textarea class="agree_fr">
 제1장 총칙
 

@@ -40,13 +40,13 @@ public class MemberController {
 
     @PostMapping("loginPro.do")
     public void loginPro(@RequestParam("id") String id, @RequestParam("pw") String pw, HttpServletRequest request, HttpServletResponse response) {
-        Member cus = memberService.getMember(id);  
+        Member cus = memberService.getIdMember(id);  
         try {
             if (cus != null && !memberService.checkPassword(pw, cus.getPw())) {
                 response.setContentType("text/html; charset=UTF-8");
                 PrintWriter out = response.getWriter();
                 out.println("<script>");
-                out.println("alert('로그인 실패: 아이디 또는 비밀번호가 일치하지 않습니다.');");
+                out.println("alert('아이디 또는 비밀번호가 일치하지 않습니다.');");
                 out.println("window.location.href = '" + request.getContextPath() + "/member/login.do';");
                 out.println("</script>");
                 out.flush();
@@ -57,7 +57,7 @@ public class MemberController {
             	response.setContentType("text/html; charset=UTF-8");
                 PrintWriter out = response.getWriter();
                 out.println("<script>");
-                out.println("alert('로그인 실패: 해당 회원이 존재하지 않습니다.');");
+                out.println("alert('해당 회원이 존재하지 않습니다.');");
                 out.println("window.location.href = '" + request.getContextPath() + "/member/login.do';");
                 out.println("</script>");
                 out.flush();
@@ -166,7 +166,7 @@ public class MemberController {
     @PostMapping("idCheck.do")
     public void idCheck(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String id = request.getParameter("id");
-        Member member = memberService.getMember(id);
+        Member member = memberService.getIdMember(id);
         boolean result = (member == null);
         JSONObject json = new JSONObject();
         json.put("result", result);
